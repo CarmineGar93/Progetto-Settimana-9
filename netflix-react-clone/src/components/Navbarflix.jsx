@@ -24,15 +24,15 @@ class Navbarflix extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home" 
+                            <Nav.Link href="#" 
                             onClick={() => {
                                 this.props.childToParent('')
                                 this.setState({research: ''})
                                 }}>Home</Nav.Link>
-                            <Nav.Link href="#link">Tv Shows</Nav.Link>
-                            <Nav.Link href="#link">Movies</Nav.Link>
-                            <Nav.Link href="#link">Recently Added</Nav.Link>
-                            <Nav.Link href="#link">My List</Nav.Link>
+                            <Nav.Link href="#">Tv Shows</Nav.Link>
+                            <Nav.Link href="#">Movies</Nav.Link>
+                            <Nav.Link href="#">Recently Added</Nav.Link>
+                            <Nav.Link href="#">My List</Nav.Link>
                         </Nav>
                         <Nav className='align-items-md-center '>
                             <Dropdown as={NavItem}>
@@ -68,8 +68,8 @@ class Navbarflix extends Component {
                                 </Row>
                             </Form>
 
-                            <Nav.Link href="#home">KIDS</Nav.Link>
-                            <Nav.Link href="#home"><img alt='' src={bell}></img></Nav.Link>
+                            <Nav.Link href="#">KIDS</Nav.Link>
+                            <Nav.Link href="#"><img alt='' src={bell}></img></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

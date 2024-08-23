@@ -5,6 +5,8 @@ import Navbarflix from "./components/Navbarflix";
 import Titleflix from "./components/Titleflix";
 import Footerflix from "./components/Footerflix";
 import Movieflix from "./components/Movieflix";
+import NavbarflixProfile from "./components/NavbarflixProfile";
+import ProfileFlix from "./components/Profileflix";
 import { useState } from "react";
 
 function App() {
@@ -16,7 +18,15 @@ function App() {
   console.log(data);
   return (
     <Container fluid data-bs-theme="dark" className="bg-dark-subtle p-0">
-      <header>
+      <Container className="py-5" datadata-bs-theme="dark">
+          <header>
+              <NavbarflixProfile />
+          </header>
+          <main className="py-5">
+            <ProfileFlix />
+          </main>
+      </Container>
+      {/* <header>
         <Navbarflix childToParent={childToParent} />
       </header>
       <main className="py-3 px-2">
@@ -36,7 +46,7 @@ function App() {
       </main>
       <footer className="pt-5">
         <Footerflix />
-      </footer>
+      </footer> */}
     </Container>
   );
 }
