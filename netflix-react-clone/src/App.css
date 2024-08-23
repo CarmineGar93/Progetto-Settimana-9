@@ -6,3 +6,7 @@
 .customized:hover {
   transform: scale(1.1);
 }
+
+.custom-margin {
+  margin-bottom: 40vh;
+}

@@ -1,8 +1,9 @@
 import { Component } from "react";
-import { Container, Row, Col} from 'react-bootstrap'
+import { Container, Row, Col, Spinner} from 'react-bootstrap'
 
 class Movieflix extends Component {
     state = {
+        isLoading: true,
         searched: this.props.searched,
         movies: {
             Search: []
@@ -21,7 +22,8 @@ class Movieflix extends Component {
                 const data = await response.json()
                 console.log(data)
                 this.setState({
-                    movies: data
+                    movies: data,
+                    isLoading: false,
                 })
             } else {
                 throw new Error ('Aiuttooooo')
@@ -33,22 +35,48 @@ class Movieflix extends Component {
 
     }
     render() {
+        const spinners = []
+        for (let i = 0; i < 5; i++) {
+            spinners.push(<Spinner animation="grow" variant="light" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>)
+        }
         return (
             <Container fluid className="mb-3">
                 <Row className="mb-3">
                     <Col>
-                        <h4 className="text-light">{this.props.searched}</h4>
+                        <h2 className="text-light">Results for {this.props.searched}</h2>
                     </Col>
                 </Row>
                 <Row xs={1} sm={2} lg={3} xl={6} className="gy-3">
                     {
-                        this.state.movies.Search.slice(0, 6).map((movie) => {
-                            return (
-                                <Col key={movie.imdbID} className="text-center">
-                                    <img src={movie.Poster} alt="" className="img-fluid customized"/>
-                                </Col>
-                            )
-                        })
+                        this.state.isLoading && (
+                            spinners.map(((spinner, i) => {
+                                return (
+                                    
+                                    <Col key={i} className="text-center">
+                                        {spinner}
+                                    </Col>
+                                    
+                                )
+                            }))
+                        )
+                    }
+                    {
+                        this.state.movies.Response === 'False' ? <h3 className="text-light custom-margin">No results found</h3> : (
+                            this.state.movies.Search.slice(0, 6).map((movie) => {
+                                return (
+                                    
+                                    <Col key={movie.imdbID} className="text-center">
+                                        <img src={movie.Poster} alt="" className="img-fluid customized"/>
+                                    </Col>
+                                    
+                                )
+                            })    
+                        )
+                    }
+                    {
+                        
                     }
                 </Row>
             </Container>
