@@ -4,6 +4,7 @@ import { Container, Row, Col, Spinner} from 'react-bootstrap'
 class Movieflix extends Component {
     state = {
         isLoading: true,
+        isErr: false,
         searched: this.props.searched,
         movies: {
             Search: []
@@ -26,17 +27,21 @@ class Movieflix extends Component {
                     isLoading: false,
                 })
             } else {
-                throw new Error ('Aiuttooooo')
+                throw new Error ('Errore nella ricerca')
             }
 
         } catch(err) {
             alert(err)
+            this.setState({
+                isErr: true,
+                isLoading: false,
+            })
         }
 
     }
     render() {
         const spinners = []
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
             spinners.push(<Spinner animation="grow" variant="light" role="status">
                 <span className="visually-hidden">Loading...</span>
               </Spinner>)
@@ -63,15 +68,20 @@ class Movieflix extends Component {
                         )
                     }
                     {
-                        this.state.movies.Response === 'False' ? <h3 className="text-light custom-margin">No results found</h3> : (
+                        !this.state.isLoading && this.state.movies.Response === 'False' ? <h3 className="text-light custom-margin">No results found</h3> : (
                             this.state.movies.Search.slice(0, 6).map((movie) => {
-                                return (
-                                    
-                                    <Col key={movie.imdbID} className="text-center">
-                                        <img src={movie.Poster} alt="" className="img-fluid customized"/>
-                                    </Col>
-                                    
-                                )
+                                if(movie.Poster !== 'N/A') {
+                                    return (
+                                        
+                                        <Col key={movie.imdbID} className="text-center">
+                                            <img src={movie.Poster} alt="" className="img-fluid customized"/>
+                                        </Col>
+                                        
+                                    )
+
+                                } else {
+                                    return <></>
+                                }
                             })    
                         )
                     }
