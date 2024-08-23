@@ -18,6 +18,7 @@ function App() {
   console.log(data);
   return (
     <Container fluid data-bs-theme="dark" className="bg-dark-subtle p-0">
+      {/*Questa è la pagina profile*/}
       {/* <Container className="py-5" datadata-bs-theme="dark">
           <header>
               <NavbarflixProfile />
