@@ -4,7 +4,7 @@ import bell from '../bell.svg'
 
 function Navbarflix() {
     return (
-        <Navbar expand="md" className="bg-dark-subtle">
+        <Navbar expand="md" >
             <Container fluid>
                 <Navbar.Brand href="#home">
                     <img width={100} src='netflix_logo.png' alt=''>
