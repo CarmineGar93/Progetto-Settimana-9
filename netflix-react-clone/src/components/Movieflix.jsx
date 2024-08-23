@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Container, Row, Col, Spinner} from 'react-bootstrap'
 
+
 class Movieflix extends Component {
     state = {
         isLoading: true,
@@ -84,9 +85,6 @@ class Movieflix extends Component {
                                 }
                             })    
                         )
-                    }
-                    {
-                        
                     }
                 </Row>
             </Container>
