@@ -24,14 +24,18 @@ class Navbarflix extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="#home" 
+                            onClick={() => {
+                                this.props.childToParent('')
+                                this.setState({research: ''})
+                                }}>Home</Nav.Link>
                             <Nav.Link href="#link">Tv Shows</Nav.Link>
                             <Nav.Link href="#link">Movies</Nav.Link>
                             <Nav.Link href="#link">Recently Added</Nav.Link>
                             <Nav.Link href="#link">My List</Nav.Link>
                         </Nav>
                         <Nav className='align-items-md-center '>
-                            <Dropdown as={NavItem} className='me-2 me-md-0'>
+                            <Dropdown as={NavItem}>
                                 <Dropdown.Toggle as={NavLink}><img alt='' src='kids_icon.png' width={30}></img></Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     <Dropdown.Item>Profile</Dropdown.Item>
@@ -59,13 +63,13 @@ class Navbarflix extends Component {
                                     }
 
                                     <Col xs="auto">
-                                        <Button type='submit' variant='outlined' className='me-2 me-md-0'><img alt='' src={search}></img></Button>
+                                        <Button type='submit' variant='outlined'><img alt='' src={search}></img></Button>
                                     </Col>
                                 </Row>
                             </Form>
 
-                            <Nav.Link href="#home" className='me-2 me-md-0'>KIDS</Nav.Link>
-                            <Nav.Link href="#home" className='me-2 me-md-0'><img alt='' src={bell}></img></Nav.Link>
+                            <Nav.Link href="#home">KIDS</Nav.Link>
+                            <Nav.Link href="#home"><img alt='' src={bell}></img></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
