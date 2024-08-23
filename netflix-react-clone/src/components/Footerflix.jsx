@@ -54,7 +54,7 @@ function Footerflix() {
                     </Row>
                     <Row className="justify-content-center justify-content-lg-start" xs="auto">
                         <Col className="mb-2">
-                        <p class="text-secondary"> &copy; 1997-2019 Netflix, Inc</p>
+                        <p className="text-secondary"> &copy; 1997-2019 Netflix, Inc</p>
                         </Col>
                     </Row>
                 </Col>
