@@ -8,6 +8,8 @@ import Movieflix from "./components/Movieflix";
 /* import NavbarflixProfile from "./components/NavbarflixProfile";
 import ProfileFlix from "./components/Profileflix"; */
 import { useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   const [data, setData] = useState("");
