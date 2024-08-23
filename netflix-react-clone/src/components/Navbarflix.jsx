@@ -30,7 +30,7 @@ class Navbarflix extends Component {
                             <Nav.Link href="#link">Recently Added</Nav.Link>
                             <Nav.Link href="#link">My List</Nav.Link>
                         </Nav>
-                        <Nav className=' flex-row align-items-center'>
+                        <Nav className='align-items-md-center '>
                             <Dropdown as={NavItem} className='me-2 me-md-0'>
                                 <Dropdown.Toggle as={NavLink}><img alt='' src='kids_icon.png' width={30}></img></Dropdown.Toggle>
                                 <Dropdown.Menu>
