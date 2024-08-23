@@ -32,7 +32,7 @@ class Movieflix extends Component {
             }
 
         } catch(err) {
-            alert(err)
+            console.log('Errore')
             this.setState({
                 isErr: true,
                 isLoading: false,
@@ -48,6 +48,7 @@ class Movieflix extends Component {
               </Spinner>)
         }
         return (
+
             <Container fluid className="mb-3">
                 <Row className="mb-3">
                     <Col>
@@ -68,7 +69,7 @@ class Movieflix extends Component {
                             }))
                         )
                     }
-                    {
+                    {   this.state.isErr ? <h3 className="text-light custom-margin">Server Error - Try Later</h3> :
                         !this.state.isLoading && this.state.movies.Response === 'False' ? <h3 className="text-light custom-margin">No results found</h3> : (
                             this.state.movies.Search.slice(0, 6).map((movie) => {
                                 if(movie.Poster !== 'N/A') {
